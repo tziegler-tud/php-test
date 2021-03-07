@@ -45,4 +45,9 @@ a {
 .monospace {
   font-family: monospace, serif;
 }
+#wrapper + div {
+  display: none !important;
+  visibility: hidden;
+  pointer-events: none;
+}
 /*# sourceMappingURL=common.css.map */
