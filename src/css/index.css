@@ -24,8 +24,10 @@
     order: 2;
   }
 }
-#wrapper.wrapper-full-height {
-  height: 100vh;
+@media only screen and (min-width: 75em), only screen and (min-width: 50em) and (max-width: 75em) and (orientation: landscape) {
+  #wrapper.wrapper-full-height {
+    height: 100vh;
+  }
 }
 .index-page {
   width: 100%;
