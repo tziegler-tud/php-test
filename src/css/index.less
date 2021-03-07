@@ -1,0 +1,192 @@
+@import "./variables";
+@import "./color-rules";
+
+.centered {
+    position: relative;
+
+@media @desktop, @tablet-landscape {
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+}
+
+#wrapper {
+    position:   relative;
+    font-size:  100%;
+    width:      100%;
+//flex:       0 0 100%;
+    order:      1;
+    margin:     0;
+    background-color: #fcfdfc;
+    color:      #333;
+    overflow:   hidden;
+
+@media @desktop, @tablet-landscape {
+    order: 2;
+//height:     calc(~"100vh - @{topnav-height}");
+}
+
+&.wrapper-full-height {
+     height: 100vh;
+ }
+}
+
+.index-page {
+    width: 100%;
+    height: 100%;
+    font-size: 80%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+
+    font-family: monospace;
+
+    @media @desktop, @tablet-landscape {
+        display: block;
+        font-size: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+
+    .index-page-container {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        position: relative;
+
+
+
+        @media @desktop, @tablet-landscape {
+            font-size: 100%;
+            height: 100%;
+            flex-flow: row nowrap;
+
+        }
+
+        .index-additional-box {
+            display: flex;
+            height: 100%;
+            flex: 1 1 50%;
+            position: relative;
+            font-size: 80%;
+            flex-flow: row wrap;
+
+            justify-content: center;
+
+            @media @desktop, @tablet-landscape {
+                font-size: 100%;
+                justify-content: center;
+            }
+
+            .additonal-content-container {
+                padding: 1em;
+                display: flex;
+                flex-flow: row wrap;
+                @media @desktop, @tablet-landscape {
+                    display: block;
+                }
+
+                .img-container{
+                    width: 100%;
+                    max-width: 250px;
+                    margin: 0 auto;
+                    flex: 1 1 100%;
+                    @media @tablet-landscape {
+                        max-width: 400px;
+                    }
+                    @media @desktop {
+                        max-width: 500px;
+                    }
+                    img {
+                        width: 100%;
+                    }
+                }
+                .label {
+                    text-align: center;
+                    font-size: 600%;
+                    flex: 1 1 100%;
+                }
+                .label-subtext {
+                    text-align: center;
+                    font-size: 100%;
+                    flex: 1 1 100%;
+                }
+            }
+        }
+
+        .index-content {
+            flex: 1 1 50%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            @media @desktop, @tablet-landscape {
+                justify-content: flex-start;
+            }
+            .index-content-inner {
+                padding: 1em 5%;
+                .index-form-container {
+
+                    .index-form-greeter{
+                        margin-bottom: 5em;
+                        .greeter-label {
+                            font-size: 250%;
+                        }
+                        .greeter-content {
+                            font-size: 150%;
+                        }
+                        .greeter-bottom-text {
+                            margin-top: 3em;
+                            white-space: normal;
+                        }
+                        .signup-link {
+                            color: #c31d34;
+                        }
+                    }
+                    .index-form-content {
+                        font-size: 110%;
+                        .index-form {
+                            font-family: sans-serif;
+                            label {
+                                display: block;
+                                margin-bottom: .5em;
+                            }
+                            .form-input {
+                                font-size: 100%;
+                                position: relative;
+                                margin-bottom: 1.5em;
+                                max-width: 20em;
+                            }
+                            .form-submit{
+                                font-size: 100%;
+                                display: block;
+                                padding: .5em 1em;
+                                border-radius: 4px;
+                                background-color: @accent-color;
+                                color: #fff;
+                                border: none;
+                                box-shadow: 0 1px 5px 0 rgba(0,0,0,0.1);
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.no-js {
+    .index-form {
+        opacity: 0.65;
+        filter: alpha(opacity=65);
+        cursor: not-allowed !important;
+
+        input {
+            cursor: not-allowed !important;
+        }
+    }
+}
