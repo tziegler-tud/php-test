@@ -1,7 +1,21 @@
 <?php
 //lets recall our session cookies
-$login_name = $_COOKIE["login_name"];
-$id = $_COOKIE["user_id"];
+if (isset($_COOKIE["login_name"]) and isset($_COOKIE["user_id"])){
+    $login_name = $_COOKIE["login_name"];
+    $id = $_COOKIE["user_id"];
+}
+else {
+    //login_name or id not found. abort and go back to login page
+    header("Location: ./index.html");
+    die();
+}
+
+//lets verify the name and id before we proceed to make the db request
+if (is_null($login_name) or is_null($id)) {
+    //login_name or id not found. abort and go back to login page
+    header("Location: ./index.html");
+    die();
+}
 
 //retrieve input data from POST request payload. The data is found in the $_POST variable
 //for now, we expect the following variables: riddle

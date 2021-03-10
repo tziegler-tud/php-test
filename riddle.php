@@ -1,7 +1,13 @@
 <?php
-$login_name = $_COOKIE["login_name"];
-$id = $_COOKIE["user_id"];
-
+if (isset($_COOKIE["login_name"]) and isset($_COOKIE["user_id"])){
+    $login_name = $_COOKIE["login_name"];
+    $id = $_COOKIE["user_id"];
+}
+else {
+    //login_name or id not found. abort and go back to login page
+    header("Location: ./index.html");
+    die();
+}
 ?>
 
 
