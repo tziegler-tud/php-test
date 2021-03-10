@@ -22,7 +22,7 @@ $connection_status_msg = "Status: Connected successfully";
 
 // we called the table "test". We will retrieve all records and then print them out one by one in our table
 
-$sql = " SELECT * FROM test"; // * means we retrieve all columns from the table
+$sql = " SELECT * FROM user"; // * means we retrieve all columns from the table
 
 $result = $conn->query($sql);
 
@@ -48,7 +48,7 @@ $result = $conn->query($sql);
             <div class="results-additional-box">
                 <div class="additonal-content-container centered">
                     <div class="label frodo-label"><span class="v2">Fro</span><span class="v3">Doe</span></div>
-                    <div class="frodo-label label-subtext"><span class="v1">Connection status: <?php echo $connection_status_msg;?></span></div>
+                    <div class="frodo-label label-subtext"><span class="v1"><?php echo $connection_status_msg;?></span></div>
                     <div class="img-container">
                         <img src="src/img/gandalf_light.jpg"/>
                     </div>
@@ -68,7 +68,7 @@ $result = $conn->query($sql);
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Lieblingsfarbe</th>
+                                    <th>Rätsel gelöst:</th>
                                     <th>Eingetragen am:</th>
                                 </tr>
 
@@ -83,9 +83,9 @@ if ($result->num_rows > 0) {  //checks if there is at least one record to displa
     //we continue our html table from above
     echo "<tr>";
     echo "<td>". $row["id"]. "</td>";
-    echo "<td>". $row["name"]. "</td>";
-    echo "<td>". $row["color"]. "</td>";
-    echo "<td>". $row["date"]. "</td>";
+    echo "<td>". $row["login_name"]. "</td>";
+    echo "<td>". $row["riddle_solved"]. "</td>";
+    echo "<td>". $row["registration_date"]. "</td>";
     echo "</tr>";
   }
 } else {  // no results found, show some error message

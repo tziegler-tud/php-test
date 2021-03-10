@@ -1,3 +1,10 @@
+<?php
+$login_name = $_COOKIE["login_name"];
+$id = $_COOKIE["user_id"];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FroDoe - Frost Dummy applicatiOn for Event registration</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="static/icons/favicon.ico">
     <link rel="stylesheet" href="/src/css/index.css">
     <link rel="stylesheet" href="/src/css/common.css">
 </head>
@@ -28,32 +34,27 @@
                 <div class="index-content-inner centered">
                     <div class="index-form-container">
                         <div class="index-form-greeter">
-                            <div class="greeter-label">Welcome, adventurer!</div>
-                            <div class="greeter-content">Please enter your name.</div>
+                            <div class="greeter-label">Greetings, <?php echo $login_name ?> !</div>
+                            <div class="greeter-content">Please solve the riddle.</div>
+                        </div>
+                        <div class="index-form-greeter">
+                            <div class="greeter-content greeter-bottom-text">Wie viel ist 2 + 3 ?</div>
                         </div>
                         <div class="index-form-content">
                             <!-- the HTML form element is the container for our inputs.
                             We specify method="POST", meaning we will send a post request to the url given by the "action" property.  -->
                             <!-- action="./registration_handler.php" points to a php file in the same directory as this file. The php file will handle the POST request. -->
-                            <form class="index-form" id="index-form01" action="./login_handler.php" method="POST">
+                            <form class="index-form" id="index-form01" action="./riddle_handler.php" method="POST">
 
                                 <!-- form contains input elements and associated labels -->
-                                <label class="form-label" id="label1" for="some_input1">Name</label>
-                                <input class="form-input" type="text" id="some_input1" name="name" aria-labelledby="label1" required>
+                                <label class="form-label" id="label1" for="some_input1">Lösung</label>
+                                <input class="form-input" type="text" id="some_input1" name="riddle" aria-labelledby="label1" required>
 
                                 <!-- clicking the button will fire the forms action -->
                                 <button class="form-submit submit-button">
                                     <span class="icon icon-send">login</span>
                                 </button>
                             </form>
-                        </div>
-                        <div class="index-form-greeter">
-                            <div class="greeter-content greeter-bottom-text">click <a class="signup-link" href="./results.php">here</a> to view the database content</div>
-                        </div>
-
-                        <div class="index-form-greeter">
-                            <div class="greeter-content greeter-bottom-text">This is a test application to demonstrate the usage of html forms, php files and mySQL databases.</div>
-                            <div class="greeter-content greeter-bottom-text">view source on <a class="signup-link  icon icon-git" href="https://github.com/tziegler-tud/php-test">github</a></div>
                         </div>
                     </div>
                 </div>
